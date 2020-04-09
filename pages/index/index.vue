@@ -5,6 +5,8 @@
 			<text class="title">{{title}}</text>
 		</view>
 		<button type="default" @click="goDetail">详情</button>
+		<button type="default" @click="getStorage">本地存储</button>
+		<button type="default" @click="removeStorage">清除缓存</button>
 	</view>
 </template>
 
@@ -15,12 +17,22 @@
 				title: 'Hello'
 			}
 		},
-		onLoad() {
-
+		async onLoad() {
+			await this.$storage.setItem('info', {
+				name: 'jack',
+				age: 24
+			})
 		},
 		methods: {
 			goDetail() {
 				this.$router.push('/pages/detail/detail')
+			},
+			async getStorage() {
+				let ret = await this.$storage.getItem('info')
+				console.log(ret)
+			},
+			async removeStorage() {
+				await this.$storage.removeItem('info')
 			}
 		}
 	}

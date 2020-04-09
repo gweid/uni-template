@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 import Router from './common/lib/Router.js'
+import Storage from "./common/lib/Storage.js"
 
 Vue.config.productionTip = false
 
@@ -11,6 +12,7 @@ const router = new Router({
 })
 
 Vue.prototype.$router = router
+Vue.prototype.$storage = Storage
 
 const app = new Vue({
 	...App

@@ -12,21 +12,6 @@ function encoderPath(data) {
 }
 
 /**
- * 路由错误判断
- * @param {String} url 路由地址
- * @param {Object} data 路由参数
- * @param {String} name 方法名
- */
-function isError(url, data, name) {
-	if (!url || typeof url !== 'string') {
-		throw new Error(`[Router.${name}] url 不能为空并且必须是字符串`)
-	}
-	if (!!data || typeof data === 'string') {
-		throw new Error(`[Router.${name}] data 必须是一个对象`)
-	}
-}
-
-/**
  * @param { Object } op
  * @param { Number } op.pageLimit 页面栈限制数
  */
@@ -82,7 +67,7 @@ class Router {
 	 */
 	redirect(url, data) {
 		if (!url || typeof url !== 'string') {
-			throw new Error(`[Router.redirect] url 不能为空且必须是字符`)
+			throw new Error(`[Router.redirect] url 不能为空且必须是字符串`)
 		}
 		if (!!data && typeof data == 'string') {
 			throw new Error(`[Router.redirect] data 必须是一个对象`)
@@ -132,7 +117,7 @@ class Router {
 	 */
 	reLaunch(url, data) {
 		if (!url || typeof url !== 'string') {
-			throw new Error(`[Router.reLaunch] url 不能为空且必须是字符`)
+			throw new Error(`[Router.reLaunch] url 不能为空且必须是字符串`)
 		}
 		if (!!data && typeof data == 'string') {
 			throw new Error(`[Router.reLaunch] data 必须是一个对象`)
@@ -162,9 +147,9 @@ class Router {
 	 */
 	switchTab(url) {
 		if (!url || typeof url !== 'string') {
-			throw new Error(`[Router.switchTab] url 不能为空且必须是字符`)
+			throw new Error(`[Router.switchTab] url 不能为空且必须是字符串`)
 		}
-		
+
 		return new Promise((resolve, reject) => {
 			uni.switchTab({
 				url,

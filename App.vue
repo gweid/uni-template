@@ -1,4 +1,5 @@
 <script>
+	import Socket from "./common/lib/Socket.js"
 	export default {
 		onLaunch: function() {
 			console.log('App Launch')

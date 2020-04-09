@@ -1,0 +1,1 @@
+<view><view>详情</view><button type="default" data-event-opts="{{[['tap',[['toBack',['$event']]]]]}}" bindtap="__e">返回</button></view>
